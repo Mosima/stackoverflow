@@ -18,7 +18,9 @@ Expand the arrow for a user to view "Follow Button", when clicked the user will 
 
 # Bugs<br />
 Follow and Block buttons don't function when the search is active<br />
+The API is down due to many calls from my IP, I have also used local data for backup
 On the view user side, the state remains when you block a user on the table<br /><br />
+
 
 # Testing <br />
 I ran out of time to implement testing with Jest as stated weekend I was attending the wedding<br /><br />
