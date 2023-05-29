@@ -44,7 +44,7 @@ const DashboardDefault = () => {
 
     //handling results
     searchResult ? setUsers(searchResult) : setUsers(user);
-  }, [searchResult]);
+  }, [searchResult, user]);
 
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
