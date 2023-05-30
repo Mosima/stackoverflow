@@ -19,7 +19,7 @@ import AnalyticEcommerce from 'components/cards/statistics/AnalyticEcommerce';
 import ActiveUserTable from './ActiveUserTable'
 import InactiveUserTable from './InactiveUserTable'
 
-import { setUser,  } from 'store/reducers/user';
+import { followUser, setUser,  } from 'store/reducers/user';
 
 
 const DashboardDefault = () => {
@@ -128,7 +128,7 @@ const DashboardDefault = () => {
               <Divider></Divider>
               <br/>
               <Typography gutterBottom  component="div">
-                {view_user.follow ? <Chip label="Block" variant="outlined" color="error" /> : ''}
+                {view_user.follow ? <Chip onClick={() => dispatch(followUser({ user: users, user_id: view_user.user_id}))} label="Block" variant="outlined" color="error" /> : ''}
               </Typography>
             </CardContent>
           </CardActionArea>
