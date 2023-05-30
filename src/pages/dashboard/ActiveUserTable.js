@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React,{} from 'react';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
 import IconButton from '@mui/material/IconButton';
@@ -17,7 +17,7 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { useDispatch } from 'react-redux';
 
-import { viewUser, unfollowUser } from 'store/reducers/user';
+import { viewUser, followUser } from 'store/reducers/user';
 
 function createData(name, reputation) {
   return {
@@ -67,7 +67,7 @@ function Row(props) {
                   <TableRow key={userRow.display_name}>
                     <TableCell align="right">
                       <Stack direction="row" spacing={1}>
-                        <Chip onClick={()=> dispatch(unfollowUser({user: user, user_id: userRow.user_id}))} label="Block" color="error" variant="outlined" />
+                        <Chip onClick={()=> dispatch(followUser({user: user, user_id: userRow.user_id}))} label="Block" color="error" variant="outlined" />
                       </Stack>
                       </TableCell>
                     </TableRow>

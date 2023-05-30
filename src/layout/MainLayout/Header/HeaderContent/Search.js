@@ -1,3 +1,5 @@
+import React, {} from 'react'
+
 // material-ui
 import { Box, FormControl, InputAdornment, OutlinedInput } from '@mui/material';
 import { SearchOutlined } from '@ant-design/icons';
@@ -8,7 +10,7 @@ import { searchUser } from 'store/reducers/user';
 
 const Search = () => {
   const dispatch = useDispatch();
-  const { user } = useSelector((state) => state.user);
+  const { user, } = useSelector((state) => state.user);
 
   const handleSearch = (e) =>{
     e.preventDefault();

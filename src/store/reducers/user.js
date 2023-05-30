@@ -66,18 +66,22 @@ const user = createSlice({
       state.searchResult = searchUserByName(action.payload.searchText, action.payload.users)
     },
     followUser(state, action) {
-      state.user = current(state).user.map(user => 
-        user.user_id === action.payload.user_id? {...user,follow:true}:user
+      const { searchResult, user} = current(state);
+
+      state.user = user.map(user => 
+        user.user_id === action.payload.user_id? {...user,follow: !user.follow}:user
       );
+
+      if(searchResult){
+    
+        state.searchResult = searchResult.map(user => 
+          user.user_id === action.payload.user_id? {...user,follow: !user.follow}:user
+        );
+      } 
     },
-    unfollowUser(state, action) {
-      state.user = current(state).user.map(user => 
-        user.user_id === action.payload.user_id? {...user,follow:false}:user
-      );
-    }
   },
 });
 
 export default user.reducer;
 
-export const { setUser, searchUser, followUser, unfollowUser, viewUser } = user.actions;
+export const { setUser, searchUser, followUser, viewUser } = user.actions;
