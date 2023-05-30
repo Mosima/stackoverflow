@@ -66,18 +66,21 @@ const user = createSlice({
       state.searchResult = searchUserByName(action.payload.searchText, action.payload.users)
     },
     followUser(state, action) {
-      const { searchResult, user} = current(state);
+      const { searchResult, user, view_user } = current(state);
 
-      state.user = user.map(user => 
-        user.user_id === action.payload.user_id? {...user,follow: !user.follow}:user
+      state.user = user.map(user =>
+        user.user_id === action.payload.user_id ? { ...user, follow: !user.follow } : user
       );
 
-      if(searchResult){
-    
-        state.searchResult = searchResult.map(user => 
-          user.user_id === action.payload.user_id? {...user,follow: !user.follow}:user
+      if (searchResult) {
+        state.searchResult = searchResult.map(user =>
+          user.user_id === action.payload.user_id ? { ...user, follow: !user.follow } : user
         );
-      } 
+      }
+
+      if(view_user && view_user.user_id === action.payload.user_id){
+        state.view_user = state.user.filter(user => user.user_id === action.payload.user_id);
+      }
     },
   },
 });

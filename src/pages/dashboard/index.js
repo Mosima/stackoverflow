@@ -45,8 +45,7 @@ const DashboardDefault = () => {
     //handling results
     searchResult ? setUsers(searchResult) : setUsers(user);
   }, [searchResult, user, view_user, users]);
-  console.log("state usrs", users
-  );
+
   return (
     <Grid container rowSpacing={4.5} columnSpacing={2.75}>
       {/* row 1 */}
@@ -103,7 +102,6 @@ const DashboardDefault = () => {
           </Grid>
           <Grid item />
         </Grid>
-
         {Object.keys(view_user).length && view_user.follow === true? <MainCard sx={{ mt: 1.5 }}>
           <CardActionArea>
             <CardMedia
